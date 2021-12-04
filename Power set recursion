@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+int sub(string str,string out[]){
+    if(str.length()==0)
+    {
+        out[0]="";
+        return 1;
+    }
+    int s=sub(str.substr(1),out);
+    for(int i=0;i<s;i++){
+        out[i+s]=str[0]+out[i];
+    }
+    return 2*s;
+}
+int main(){
+    // int n;
+    string s[1000];
+    // cout<<"\n Enter the size of the string\n";
+    // cin>>n;
+    int output=sub("abcde",s);
+    for(int i=0;i<output;i++){
+        cout<<s[i]<<"\n ";
+    }
+    return 0;
+}
